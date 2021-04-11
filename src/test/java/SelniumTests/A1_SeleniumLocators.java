@@ -18,7 +18,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class A1_SeleniumLocators {
-
+    //
     @Test
     public void get(){
         WebDriverManager.chromedriver().setup();
