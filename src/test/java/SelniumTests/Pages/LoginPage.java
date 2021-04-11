@@ -40,7 +40,9 @@ public class LoginPage {
         Username.sendKeys(userr);
         Password.sendKeys(passs);
         LoginButton.click();
-        Assert.assertTrue(ErrorMessage.getText().contains("Epic sadface"));
+
+
+
     }
 
 

@@ -1,11 +1,15 @@
 package SelniumTests.Pages;
 
+import SelniumTests.Utility.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
 public class CartPage {
+
+public CartPage() {        PageFactory.initElements(Driver.get(),this);    }
 
 
     @FindBy(className = "inventory_item_name")
@@ -16,8 +20,10 @@ public class CartPage {
     public List<WebElement> ItemsPriceList;
     @FindBy (id="continue-shopping")
     public WebElement ContinueShopping;
-    @FindBy (xpath = "checkout")
-    public WebElement checkout;
+
+
+    @FindBy (id = "checkout")
+     public WebElement checkout;
 
     public  void remove(String str){
         for( int i=0; i<ItemsList.size(); i++){
