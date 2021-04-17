@@ -12,14 +12,16 @@ public abstract class BasePage {
     @FindBy(className = "shopping_cart_link")
     public WebElement ShoppingCart;
 
-    @FindBy(id="react-burger-menu-btn")
+    @FindBy(xpath = "//*[@class='bm-burger-button']/button")
     public WebElement menu;
 
-    @FindBy(id="logout_sidebar_link")
+    @FindBy(xpath="//*[@id='logout_sidebar_link']")
     public  WebElement Logout;
 
-    public void logout(){
-        menu.click();Logout.click();
+    public void logout()  {
+        menu.click();
+        try{  Thread.sleep(5000);}catch (InterruptedException e){}
+        Logout.click();
     }
 
 
