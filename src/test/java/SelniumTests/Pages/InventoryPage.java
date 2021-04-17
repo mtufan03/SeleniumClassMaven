@@ -29,12 +29,21 @@ public class InventoryPage extends BasePage {
 
     }
 
-    public  void remove(String s){
-
+    public  void remove(String str){
+        for( int i=0; i<ItemName.size(); i++){
+            if(ItemName.get(i).getText().contains(str)){
+                RemoveButtons.get(i).click();
+            }
+        }
     }
 
     public int getPrice(String str){
         int a=0;
+        for( int i=0; i<ItemName.size(); i++){
+            if(ItemName.get(i).getText().contains(str)){
+                a=Integer.parseInt(ItemsPriceList.get(i).getText());
+            }
+        }
         return a;
     }
 

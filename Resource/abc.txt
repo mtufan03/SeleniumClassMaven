@@ -1,0 +1,7 @@
+username,password
+ ,pass
+ user,
+ 12344,pass
+ user,2344
+ !@#$##%,pass
+ user,@#$@#$
