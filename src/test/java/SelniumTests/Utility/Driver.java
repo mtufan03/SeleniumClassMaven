@@ -31,8 +31,11 @@ public class Driver {
         }}
         return driver;
     }
-    public  static  void closeDriver(){
+    public  static  void closeDriver()  {
+//        Thread.sleep(3000);
+        if(driver!=null){
         driver.quit();
+        driver=null;}
     }
 
 

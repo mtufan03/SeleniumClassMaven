@@ -23,21 +23,32 @@ public class Login extends TestBase {
 
     @Test
     public void test1() throws InterruptedException {
+        extentLogger =report.createTest("Login Test 1");
         String url=ConfigurationReader.get("url");
         driver.get(url);
         LoginPage loginPage=new LoginPage();
-
+        extentLogger.info("Object is created");
 //        String user=ConfigurationReader.get("username");
 //        String pass=ConfigurationReader.get("password");
 //        loginPage.Username.sendKeys(user);
 //        loginPage.Password.sendKeys(pass);
 //        Thread.sleep(3000);
 //        loginPage.LoginButton.click();
-
 //        loginPage.login();
         loginPage.login("Ali","Kurall");
-
+        extentLogger.pass("Everyhing works as expected");
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
     @Test
@@ -80,6 +91,19 @@ public class Login extends TestBase {
         new Checkout2Page().confirmOrder();
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     @DataProvider
     public Object[][] dataLogin(){
         Object [][] objects={{"user","password"},{"User"," "},{" ", "pass"}};
@@ -88,9 +112,12 @@ public class Login extends TestBase {
 
     @Test(dataProvider = "excellData")
     public void LoginNegative(String a,String b){
+        extentLogger =report.createTest("Negative Login");
         driver.get("https://www.saucedemo.com/");
         new LoginPage().login(a,b);
+        extentLogger.info("Username="+a+" and Password="+b+" is typed");
         System.out.println(a+" "+b);
+        extentLogger.pass("Everyhing works as expected");
     }
 
 

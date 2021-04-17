@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SeleniumClass" verbose="2">
+    <test name="Any name">
+        <classes>
+            <class name="SelniumTests.Tests.Login">
+                <methods>
+                    <include name="test1"></include>
+                    <include name="test5"></include>
+
+                </methods>
+            </class>
+        </classes>
+
+
+    </test>
+</suite>
