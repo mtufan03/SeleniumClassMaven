@@ -21,20 +21,26 @@ public class InventoryPage extends BasePage {
     public List<WebElement> ItemsPriceList;
 
     public void add(String str){
+        int a=0;
         for( int i=0; i<ItemName.size(); i++){
             if(ItemName.get(i).getText().contains(str)){
                 AddButtons.get(i).click();
-            }
+            }else{a++;            }
         }
-
+        if(ItemName.size()==a){
+        System.out.println(str +" is not in our inventory. Please check your request");}
     }
 
-    public  void remove(String str){
-        for( int i=0; i<ItemName.size(); i++){
+        public  void remove(String str){
+        int a=-1; int n=RemoveButtons.size();
+        System.out.println(n);
+        for( int i=0; i<n; i++){
             if(ItemName.get(i).getText().contains(str)){
                 RemoveButtons.get(i).click();
-            }
+            }else{a++;}
         }
+        if(a==n){
+            System.out.println(str+" is not added to the chart yet or not in the list");}
     }
 
     public int getPrice(String str){
