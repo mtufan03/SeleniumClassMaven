@@ -27,6 +27,7 @@ public class Inventory extends TestBase {
 
     }
 
+//    User can Remove items from Inventory Page
     @Test
     public  void  removeItem() throws InterruptedException {
 
