@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class Checkout1Page {
+public class Checkout1Page extends BasePage {
 
 
 
@@ -27,6 +27,9 @@ public class Checkout1Page {
 
     @FindBy(id = "continue")
     public WebElement ContinueButton;
+
+    @FindBy(xpath = "//*[@data-test='error']")
+    public WebElement ErrorMessage;
 
     @FindBy(id = "cancel")
     public WebElement CancelButton;
