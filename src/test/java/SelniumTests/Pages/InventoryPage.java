@@ -20,7 +20,7 @@ public class InventoryPage extends BasePage {
     @FindBy(className = "inventory_item_price")
     public List<WebElement> ItemsPriceList;
 
-    public void add(String str){
+    public double add(String str){
         int a=0;
         for( int i=0; i<ItemName.size(); i++){
             if(ItemName.get(i).getText().contains(str)){
@@ -29,6 +29,7 @@ public class InventoryPage extends BasePage {
         }
         if(ItemName.size()==a){
         System.out.println(str +" is not in our inventory. Please check your request");}
+        return getPrice(str);
     }
 
         public  void remove(String str){
@@ -43,11 +44,11 @@ public class InventoryPage extends BasePage {
             System.out.println(str+" is not added to the chart yet or not in the list");}
     }
 
-    public int getPrice(String str){
-        int a=0;
+    public double getPrice(String str){
+        double a=0;
         for( int i=0; i<ItemName.size(); i++){
             if(ItemName.get(i).getText().contains(str)){
-                a=Integer.parseInt(ItemsPriceList.get(i).getText());
+                a=Double.parseDouble(ItemsPriceList.get(i).getText().substring(1));
             }
         }
         return a;
