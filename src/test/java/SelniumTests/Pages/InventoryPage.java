@@ -32,7 +32,7 @@ public class InventoryPage extends BasePage {
     }
 
         public  void remove(String str){
-        int a=-1; int n=RemoveButtons.size();
+        int a=0; int n=RemoveButtons.size();
         System.out.println(n);
         for( int i=0; i<n; i++){
             if(ItemName.get(i).getText().contains(str)){

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class CartPage {
+public class CartPage extends BasePage {
 
 public CartPage() {        PageFactory.initElements(Driver.get(),this);    }
 
@@ -26,7 +26,7 @@ public CartPage() {        PageFactory.initElements(Driver.get(),this);    }
      public WebElement checkout;
 
     public  void remove(String str){
-        for( int i=0; i<ItemsList.size(); i++){
+        for( int i=0; i<RemoveButtons.size(); i++){
             if(ItemsList.get(i).getText().contains(str)){
                 RemoveButtons.get(i).click();
             }
