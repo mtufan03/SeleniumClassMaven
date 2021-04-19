@@ -69,7 +69,7 @@ public class TestBase {
     public void afterTest(){
         //Closing the report
          report.flush();
-//         Driver.get().quit();
+         Driver.get().quit();
     }
 
 }

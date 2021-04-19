@@ -11,7 +11,7 @@ public class Inventory extends TestBase {
 
 
     @Test
-    public void addItem(){
+    public void addItem() throws InterruptedException {
         driver.get("https://www.saucedemo.com/inventory.html");
         new LoginPage().login();
 //        LoginPage loginPage=new LoginPage();
@@ -20,8 +20,9 @@ public class Inventory extends TestBase {
 //        String s0=inventoryPage.ItemName.get(1).getText();
 //        System.out.println(s0);
         inventoryPage.add("Fleece Jacket");
-        inventoryPage.add("pike");
-
+        Thread.sleep(3000);
+        inventoryPage.add("Bike");
+        Thread.sleep(3000);
         inventoryPage.logout();
 
 
