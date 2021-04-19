@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium Class Maven" verbose="3">
+    <test name="Smoke">
+        <classes>
+            <class name="SelniumTests.Tests.Login">
+                <methods>
+                    <include name="test1"></include>
+                    <include name="negativeLog"></include>
+                    <include name="print"></include>
+                </methods>
+            </class>
+        </classes>
+
+
+    </test>
+
+</suite>

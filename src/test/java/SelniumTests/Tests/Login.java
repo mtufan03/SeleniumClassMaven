@@ -23,11 +23,13 @@ public class Login extends TestBase {
 
     @Test
     public void test1() throws InterruptedException {
-        extentLogger =report.createTest("Login Test 1");
+//        extentLogger =report.createTest("Login Test 1");
         String url=ConfigurationReader.get("url");
         driver.get(url);
         LoginPage loginPage=new LoginPage();
-        extentLogger.info("Object is created");
+        loginPage.login();
+//        extentLogger.info("Object is created");
+
 //        String user=ConfigurationReader.get("username");
 //        String pass=ConfigurationReader.get("password");
 //        loginPage.Username.sendKeys(user);
@@ -35,10 +37,61 @@ public class Login extends TestBase {
 //        Thread.sleep(3000);
 //        loginPage.LoginButton.click();
 //        loginPage.login();
-        loginPage.login("Ali","Kurall");
-        extentLogger.pass("Everyhing works as expected");
+
+//        extentLogger.pass("Everyhing works as expected");
     }
 
+    @DataProvider
+    public Object[][] data(){
+        Object [][] data={{"username","password"},{"John","Smith"},{"James","Spader"}};
+        return data;
+    }
+
+    @Test(dataProvider = "data")
+    public void print(String a,String b) throws InterruptedException {
+        System.out.println("U = "+a+"  P = "+b);
+        Thread.sleep(3000);
+    }
+
+    @Test(dataProvider = "data")
+    public void negativeLog(String user,String pass) throws InterruptedException {
+        String url=ConfigurationReader.get("url");
+        driver.get(url);
+        LoginPage loginPage=new LoginPage();
+        loginPage.login(user, pass);
+//        Thread.sleep(3000);
+    }
+
+    @DataProvider
+//    @Test
+    public Object[][] excell(){
+        Workbook wb=null;
+        try {
+            FileInputStream excell=new FileInputStream("Resource\\DataLogin.xlsx");
+            wb= WorkbookFactory.create(excell);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Sheet ws=wb.getSheet("sheet1");
+        Row row=ws.getRow(0);
+        int rowNo=ws.getLastRowNum();
+        int columnNo=row.getLastCellNum();
+        Object[][] data=new Object[rowNo][2];
+        for(int i=0;i<rowNo;i++){
+            for(int j=0;j<2;j++){
+               Cell cell=ws.getRow(i).getCell(j);
+               if(cell!=null){Object cellData=cell.toString();
+               data[i][j]=cellData;
+//                System.out.println(cellData);
+                }
+            }
+        }
+
+
+        return data;
+    }
 
 
 
@@ -162,12 +215,12 @@ public class Login extends TestBase {
 
     @Test
     public void Writer() throws IOException {
-        File file= new File("Resource/abcd.csv");
+        File file= new File("Resource/Data.csv");
         file.createNewFile();
         FileWriter fw=new FileWriter(file);
         BufferedWriter writer=new BufferedWriter(fw);
 
-        writer.write("1,2"); writer.newLine();
+        writer.write("1AAAAAAAA,2BBBBBBBBBBBBBBBBBBBBBB"); writer.newLine();
         writer.write("21,   22  "); writer.newLine();
         writer.write(" 311   ,333"); writer.newLine();
         writer.write("4111,4444"); writer.newLine();
