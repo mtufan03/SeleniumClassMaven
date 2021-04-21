@@ -30,7 +30,7 @@ public class TestBase {
     protected static ExtentTest extentLogger;
     @BeforeTest
     public void beforeTest(){
-        // Reports setup
+//         Reports setup
         report = new ExtentReports();
         htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/Screenshots/AAreport.html");
         report.attachReporter(htmlReporter);
@@ -46,11 +46,11 @@ public class TestBase {
          wait=new WebDriverWait(driver,10);
 
     }
-
+    @AfterMethod
     public void afterMethod(ITestResult result) throws InterruptedException, IOException {
         if(result.getStatus()==ITestResult.FAILURE) {   // if it fails
             extentLogger.fail(result.getName());
-            String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+            String date = new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
             TakesScreenshot ts=(TakesScreenshot)Driver.get();
             File file=ts.getScreenshotAs(OutputType.FILE);
             String target = System.getProperty("user.dir") + "/test-output/Screenshots/" + result.getName() + date + ".png";
@@ -62,7 +62,7 @@ public class TestBase {
 
         }
 
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         Driver.closeDriver();
     }
     @AfterTest

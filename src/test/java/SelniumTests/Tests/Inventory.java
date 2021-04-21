@@ -3,15 +3,42 @@ package SelniumTests.Tests;
 import SelniumTests.Pages.InventoryPage;
 import SelniumTests.Pages.LoginPage;
 import SelniumTests.TestBase;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class Inventory extends TestBase {
 //    User Story 3
 //    User can Select and Add items to the cart from Inventory Page
 
+    ExtentReports report=new ExtentReports();
+    String path=System.getProperty("user.dir")+"/test-output/Screenshots/AABreport.html";
+    ExtentHtmlReporter htmlReporter=new ExtentHtmlReporter(path);
+    protected static ExtentTest extentLogger;
+    @BeforeMethod
+    public void setup(){
+    report.attachReporter(htmlReporter);
+    htmlReporter.config().setReportName("VyTrack Smoke Test");
+    report.setSystemInfo("Environment", "QA");
+    report.setSystemInfo("Browser", "Chrome");
+    }
+
+    @AfterMethod()
+    public void after(){
+        report.flush();
+    }
+
+
+
 
     @Test
     public void addItem() throws InterruptedException {
+        extentLogger=report.createTest("Test for Inventory");
+        extentLogger.info("AAA");
+
         driver.get("https://www.saucedemo.com/inventory.html");
         new LoginPage().login();
 //        LoginPage loginPage=new LoginPage();

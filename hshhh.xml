@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="hhh">
+    <test name="test 1">
+        <classes>
+            <class name="SelniumTests.Tests.Checkout1">
+                <methods>
+                    <exclude name="invalidUser2"></exclude>
+                </methods>
+            </class>
+            <class name="SelniumTests.Tests.Login"></class>
+        </classes>
+    </test>
+
+</suite>
