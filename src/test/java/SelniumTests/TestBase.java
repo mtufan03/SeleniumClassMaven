@@ -62,14 +62,19 @@ public class TestBase {
 
         }
 
-//        Thread.sleep(3000);
+        Thread.sleep(3000);
         Driver.closeDriver();
+//        if(driver!=null){        driver.close();           driver=null;}
     }
     @AfterTest
     public void afterTest(){
         //Closing the report
-         report.flush();
-         Driver.get().quit();
+
+
+//        driver.close();
+        report.flush();
+//         Driver.get().quit();
+                if(driver!=null){        driver.quit();           driver=null;}
     }
 
 }

@@ -5,9 +5,9 @@
             <class name="SelniumTests.Tests.Checkout1">
                 <methods>
                     <exclude name="invalidUser2"></exclude>
-                </methods>
-            </class>
-            <class name="SelniumTests.Tests.Login"></class>
+                </methods></class>
+<!--            </class>-->
+<!--            <class name="SelniumTests.Tests.Login"></class>-->
         </classes>
     </test>
 

@@ -31,14 +31,14 @@ public class LoginPage {
 //        LoginPage loginPage=new LoginPage();
         String user=ConfigurationReader.get("username");
         String pass=ConfigurationReader.get("password");
-        Username.sendKeys(user);
-        Password.sendKeys(pass);
+        Username.clear();Username.sendKeys(user);
+        Password.clear();Password.sendKeys(pass);
         LoginButton.click();
     }
 
     public void  login(String userr,String passs){
-        Username.sendKeys(userr);
-        Password.sendKeys(passs);
+        Username.clear();Username.sendKeys(userr);
+        Password.clear();Password.sendKeys(passs);
         LoginButton.click();
 
 

@@ -36,7 +36,7 @@ public class Login extends TestBase {
 //        loginPage.Password.sendKeys(pass);
 //        Thread.sleep(3000);
 //        loginPage.LoginButton.click();
-        loginPage.login();
+
 
         extentLogger.pass("Everyhing works as expected");
     }

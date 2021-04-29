@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Selenium Class Maven" verbose="3">
+<suite name="Selenium Class Maven" parallel="classes" thread-count="3"  >
     <test name="Smoke">
         <classes>
             <class name="SelniumTests.Tests.Login">
